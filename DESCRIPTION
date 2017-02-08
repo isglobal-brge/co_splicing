@@ -1,0 +1,15 @@
+Package: cosplicing
+Type: Package
+Title: Package to perform cosplicing data analysis
+Version: 0.9.5-25
+Date: 2017-02-08
+Author: Alenjandro Caceres, Pau Torres and Juan R Gonzalez
+Maintainer: Juan R Gonzalez <juanr.gonzalez@isglobal.org>
+Depends: 
+    R (>= 3.3.0)
+Description: This packages performs cosplicing data analysis
+License: GPL (>= 2)
+URL: http://www.creal.cat/brge and http://www.creal.cat/jrgonzalez/software.htm
+VignetteBuilder: knitr
+Suggests: BiocStyle, knitr, rmarkdown
+LazyData: TRUE
