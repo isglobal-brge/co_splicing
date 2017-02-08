@@ -9,7 +9,7 @@ getDataGroup <- function(x, group) {
   {  
     v <- group == ll[i]
     vv <- outer(v,v)
-    vvv <- vv[upper.tri(vv, diag=FALSE)]
+    vvv <- vv[lower.tri(vv, diag=FALSE)]
     ans[[i]] <- x[vvv==1]
   }
   names(ans) <- ll
