@@ -1,6 +1,6 @@
 export(getBatchMatrix)
 export(getDataGroup)
-export(getDistanceGemes)
+export(getDistanceGenes)
 export(mantelcor)
 export(mantelcorGroup)
 
