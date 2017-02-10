@@ -15,10 +15,13 @@ mantelcorGroup  <- function(g1, g2, batchmat, group) {
         list2 <- getDataGroup(x = g2 ,group = group)
         list3 <- getDataGroup(x = batchmat ,group = group)
         
-        MAA <- mantelcor(list1$AA, list2$AA, list3$AA, use = "complete.obs")
-        MAB <- mantelcor(list1$AB, list2$AB, list3$AB, use = "complete.obs")
-        MBB <- mantelcor(list1$BB, list2$BB, list3$BB, use = "complete.obs") 
+        MAA <- try(mantelcor(list1$AA, list2$AA, list3$AA, use = "complete.obs"))
+        MAB <- try(mantelcor(list1$AB, list2$AB, list3$AB, use = "complete.obs"))
+        MBB <- try(mantelcor(list1$BB, list2$BB, list3$BB, use = "complete.obs")) 
         
+        if(class(MAA)=="try-error" || class(MAB)=="try-error" || class(MBB)=="try-error"){
+                return(NA)
+        }
         maxim <- max(abs(MAA - MAB), abs(MAA - MBB), abs(MAB - MBB))
         maxim
 }
