@@ -27,7 +27,7 @@ SNIPS <- function(indnames, SNIPgroups, g1, g2, batchmat){
         g2new <- getDataGroup(x = g2, group = groupCommon)
         batchmatnew <- getDataGroup(x= batchmat, group = groupCommon )
         
-        ans <- lapply(X = 1:ncol(genosCommon), function(x) trymcGroup(g1new[[2]], g2new[[2]], batchmatnew[[2]], genosCommon[,x]))
+        ans <- sapply(X = 1:ncol(genosCommon), function(x) trymcGroup(g1new[[2]], g2new[[2]], batchmatnew[[2]], genosCommon[,x]))
         
         names(ans) <- colnames(genosCommon)
         ans
