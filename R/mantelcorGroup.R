@@ -10,6 +10,7 @@
 #from mantel statistic applied for each group.
 
 mantelcorGroup  <- function(g1, g2, batchmat, group) {
+        if (!is.factor(group)){stop("group variable must be a factor")}
         
         list1 <- getDataGroup(x = g1 ,group = group)
         list2 <- getDataGroup(x = g2 ,group = group)

@@ -14,7 +14,7 @@ trymcGroup <- function(g1, g2, batchmat, group){
         group <- as.factor(group)
         levels(group) <-c("AA", "AB", "BB")
         
-        test <- try(mantelcorGroup(g1, g2, batchmat, as.factor(group)),silent = T)
+        test <- try(mantelcorGroup(g1, g2, batchmat, group),silent = T)
         if(class(test)=="try-error")
         {
                 test<-NA
