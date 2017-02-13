@@ -1,4 +1,6 @@
 SNIPS <- function(indnames, SNIPgroups, g1, g2, batchmat){
+        warning("Order of individuals must be the same as in 
+                matrices g1, g2, batchmat")
         
         #This two lines transform the rownames of the matrix selecting the second
         #string, which match with the labels from indnames.
@@ -28,7 +30,7 @@ SNIPS <- function(indnames, SNIPgroups, g1, g2, batchmat){
         batchmatnew <- getDataGroup(x= batchmat, group = groupCommon )
         
         ans <- sapply(X = 1:ncol(genosCommon), function(x) trymcGroup(g1new[[2]], g2new[[2]], batchmatnew[[2]], genosCommon[,x]))
-        
+        if(any(is.na(ans))==T){warning("The output has NA values") }
         names(ans) <- colnames(genosCommon)
         ans
 }
