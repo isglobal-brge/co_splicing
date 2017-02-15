@@ -14,7 +14,15 @@ trymcGroup <- function(g1, g2, batchmat, group){
         group <- as.factor(group)
         levels(group) <-c("AA", "AB", "BB")
         
-        test <- try(mantelcorGroup(g1, g2, batchmat, group),silent = T)
+        #As the first group commonly has less individuals in case that the number is less
+        #than 5 we join the group AA with AB.
+        if(sum(group =="AA")<5){
+                levels(group) = c("A","A","B")
+                test <- try(mantelcor2Group(g1, g2, batchmat, group),silent = T)
+                return(test)
+        }
+        
+        test <- try(mantelcorGroup(g1, g2, batchmat, as.factor(group)),silent = T)
         if(class(test)=="try-error")
         {
                 test<-NA
