@@ -9,6 +9,8 @@
 #It returns the maximum value between the differences of the values 
 #from mantel statistic applied for each group.
 
+#It is needed that the levels are AA, AB, BB
+
 mantelcorGroup  <- function(g1, g2, batchmat, group) {
         if (!is.factor(group)){stop("group variable must be a factor")}
         
