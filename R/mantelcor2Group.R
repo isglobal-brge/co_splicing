@@ -1,5 +1,5 @@
 #Levels of groups are A & B.
-#This function acts on trymcGroup when group AA has less than 5 individuals.
+
 mantelcor2Group  <- function(g1, g2, batchmat, group) {
         if (!is.factor(group)){stop("group variable must be a factor")}
         
