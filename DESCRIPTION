@@ -13,3 +13,4 @@ URL: http://www.creal.cat/brge and http://www.creal.cat/jrgonzalez/software.htm
 VignetteBuilder: knitr
 Suggests: BiocStyle, knitr, rmarkdown
 LazyData: TRUE
+RoxygenNote: 6.0.1

@@ -1,15 +1,18 @@
-#getDataGroup function must be loaded.
-#g1 , g2 & batchmat contain square matrices of the same dimension
-#g1 & g2 cointains the distances between individuals about the 
-#expression of concret genes 1 and 2.
-#batchmat contains the batch effect among all genes
-# group: the factor vector with the group of each individual in order
-#The relation length(group)*(length(group)-1)/2 = length(x) must be satisfied
-
-#It returns the maximum value between the differences of the values 
-#from mantel statistic applied for each group.
-
-#It is needed that the levels are AA, AB, BB
+#'  Mantel test on different groups
+#' 
+#' The function uses getDataGroup function to perform mantel test on data from individuals that
+#' belongs to the same group.
+#' 
+#' @param g1  The distance data vector for a particular gene.
+#' @param g2 The distance data vector for another gene. 
+#' @param batchmat The distance data vector containing the corrections due to experiment conditions.
+#' The length of g1, g2 and batchmat must be the same.
+#' @param group A factor with the group to which belongs each individual in the same order as they are on the matrix
+#' from which the three first arguments belong. The function is performed so that the number of groups be 3 and the levels
+#' of group be "AA", "AB" & "BB" in this order.
+#' @return The function calculate the differences in mantel correlation value from each pair of groups and returns the 
+#' maximum value between the absolute value of these differences.
+#' @export 
 
 mantelcorGroup  <- function(g1, g2, batchmat, group) {
         if (!is.factor(group)){stop("group variable must be a factor")}
